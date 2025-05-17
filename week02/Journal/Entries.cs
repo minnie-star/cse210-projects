@@ -1,5 +1,5 @@
 //get; set; refrence https://www.w3schools.com/cs/cs_properties.php
-class Entries
+public class Entries
 {
     public string _prompt { get; set; }
     public string _response { get; set; }

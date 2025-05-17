@@ -1,9 +1,9 @@
 //https://www.webdevtutor.net/blog/c-sharp-save-file
 //https://www.csharp-examples.net/read-text-file/
-class Journal
+public class Journal
 {
-    private List<Entries> _entries = new List<Entries>();
-    private List<string> _prompts = new List<string>
+    public List<Entries> _entries = new List<Entries>();
+    public List<string> _prompts = new List<string>
     {
         "Who was the most interesting person I interacted with today?",
         "What was the best part of my day?",
