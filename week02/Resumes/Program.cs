@@ -25,7 +25,6 @@ class Program
         myResume._name = "Minnie Star";
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
-       
         myResume.DisplayResume();
     } 
 }
