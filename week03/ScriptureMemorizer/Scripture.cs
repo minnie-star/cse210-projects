@@ -21,6 +21,8 @@ public class Scripture
     };
 
     private List<List<Word>> _wordLists;
+    private int _score = 0;
+    
     public Scripture()
     {
         _wordLists = new List<List<Word>>();
@@ -36,9 +38,10 @@ public class Scripture
     {
         Random random = new Random();
         var candidates = new List<int>();
-
+       
         for (int j = 0; j < _wordLists[index].Count; j++)
         {
+
             if (!_wordLists[index][j].ToString().Contains("_"))
             {
                 candidates.Add(j);
@@ -86,13 +89,15 @@ public class Scripture
                 HideRandomWords(i);
                 Console.Clear();
                 Display(i);
+                Console.WriteLine($"{i + 1}/{_wordLists.Count}");
             }
-
-            Console.WriteLine("\nAll words hidden! Press Enter to proceed to the next scripture.");
+            _score += 10;
+            Console.WriteLine($"\nAll words hidden! Your Score: {_score}");
+            Console.WriteLine("Press Enter to proceed to the next scripture.");
             Console.ReadLine();
+            Console.WriteLine($"Progress: {i + 1}/{_wordLists.Count} scriptures memorized.");
         }
-
-        Console.WriteLine("\nAll scriptures have been memorized. Program ending.");
+        Console.WriteLine($"\nAll scriptures have been memorized! Final Score:{_score} Program ending.");
     }
 
 }
