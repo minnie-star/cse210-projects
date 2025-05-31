@@ -15,7 +15,7 @@ class Program
         order.AddProduct(new Product("Perfume", 125, 189, 2));
 
         Console.WriteLine("Packing Label:\n" + order.GetPackingLabel());
-        Console.WriteLine("Shipping Label:\n" + order.GetShippingLable());
+        Console.WriteLine("Shipping Label:\n" + order.GetShippingLabel());
         Console.WriteLine("Total Price:\n" + order.CalculateTotalPrice());
         
         // second order outside USA
@@ -28,7 +28,7 @@ class Program
         order2.AddProduct(new Product("Monitor", 124, 432, 2));
 
         Console.WriteLine("Packing Label:\n" + order2.GetPackingLabel());
-        Console.WriteLine("Shipping Label:\n" + order2.GetShippingLable());
+        Console.WriteLine("Shipping Label:\n" + order2.GetShippingLabel());
         Console.WriteLine("Total Price:\n" + order2.CalculateTotalPrice());
     }
 }

@@ -1,26 +1,31 @@
+using System;
+using System.Collections.Generic;
+
 public class Order
 {
-    public List<Product> _oderList = new List<Product>();
-    public Customer customer;
+    private List<Product> _orderList = new List<Product>();
+    private Customer _customer;
 
     public Order(Customer customer)
     {
-        this.customer = customer;
+        _customer = customer;
     }
 
     public void AddProduct(Product product)
     {
-        _oderList.Add(product);
+        _orderList.Add(product);
     }
+
     public decimal CalculateTotalPrice()
     {
         decimal total = 0;
-        foreach (var product in _oderList)
+        foreach (var product in _orderList)
         {
             total += product.GetTotalCost();
         }
+
         decimal shippingCost;
-        if (customer.Address.USACitizen())
+        if (_customer.LivesInUSA())
         {
             shippingCost = 5;
         }
@@ -28,22 +33,24 @@ public class Order
         {
             shippingCost = 35;
         }
- 
+
         return total + shippingCost;
     }
 
     public string GetPackingLabel()
     {
         string packingLabel = "";
-        foreach (var product in _oderList)
+        foreach (var product in _orderList)
         {
-            packingLabel += $"{product._name} (ID: {product._productID})\n";
+            packingLabel += product.DisplayProduct();
+
         }
         return packingLabel.Trim();
     }
 
-    public string GetShippingLable()
+    public string GetShippingLabel()
     {
-        return $"{customer._name}\n{customer.Address.GetAddress()}";
+       
+        return _customer.DisplayCustomer();
     }
 }

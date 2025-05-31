@@ -1,6 +1,6 @@
 public class Customer
 {
-    public string _name;
+    private string _name;
     public Address Address;
 
     public Customer(string name, Address address)
@@ -15,6 +15,6 @@ public class Customer
     }
     public string DisplayCustomer()
     {
-        return $"{_name} - {Address}";
+        return $"{_name} - {Address.GetAddress()}";
     }
 }
