@@ -22,9 +22,9 @@ public class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?"
     };
 
-    public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.", 0)
+    public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.")
     {
-
+       
     }
 
     public void Run()
@@ -34,7 +34,7 @@ public class ReflectingActivity : Activity
         foreach (var question in shuffledQuestions)
         {
             Console.WriteLine(question);
-            ShowSpinner(0);
+            ShowSpinner(3);
             System.Threading.Thread.Sleep(1000);
         }
     }
