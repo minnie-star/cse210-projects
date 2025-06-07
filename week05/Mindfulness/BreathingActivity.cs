@@ -1,21 +1,24 @@
-using System.Runtime.InteropServices;
-
-public class BreatingActivity : Activity
+public class BreathingActivity : Activity
 {
-    public BreatingActivity() : base("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")
+    public BreathingActivity() : base("Breathing Activity", 
+        "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", 0) 
     {
-
     }
+
     public void Run()
     {
         DisplayStartMessage();
-        for (int i = 0; i < _duration / 2; i++)
+
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+
+        while (DateTime.Now < endTime)
         {
             Console.WriteLine("\nBreathe in...");
-            DisplayCountDown(3);
-            Console.WriteLine("\vBreathe out...");
-            DisplayCountDown(3);
+            DisplayCountDown(5);
+            Console.WriteLine("\nBreathe out...");
+            DisplayCountDown(5);
         }
+
         DisplayEndMessage();
     }
 
@@ -28,6 +31,4 @@ public class BreatingActivity : Activity
         }
         Console.WriteLine();
     }
-    
-    
 }

@@ -22,21 +22,25 @@ public class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?"
     };
 
-    public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.")
+    public ReflectingActivity() : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.", 0)
     {
        
     }
 
     public void Run()
     {
+        DisplayStartMessage();
+        GetRandomPrompt();
+        ShowSpinner(5);
         Random random = new Random();
         List<string> shuffledQuestions = _questions.OrderBy(q => random.Next()).ToList();
         foreach (var question in shuffledQuestions)
         {
             Console.WriteLine(question);
-            ShowSpinner(3);
+            ShowSpinner(5);
             System.Threading.Thread.Sleep(1000);
         }
+        DisplayEndMessage();
     }
 
     public void GetRandomPrompt()
@@ -44,9 +48,6 @@ public class ReflectingActivity : Activity
         Random random = new Random();
         string prompt = _prompt[random.Next(_prompt.Count)];
         Console.WriteLine(prompt);
-        Console.Write("Your response: ");
-        Console.ReadLine();
-
     }
 
     public void GetRandonQuestion()

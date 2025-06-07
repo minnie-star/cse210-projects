@@ -4,18 +4,18 @@ public class Activity
     private string _description;
     protected int _duration;
 
-    public Activity(string name, string description)
+    public Activity(string name, string description, int duration)
     {
         _name = name;
         _description = description;
-       
+        _duration = duration;
     }
     public void DisplayStartMessage()
     {
+
         Console.Clear();
         Console.WriteLine($"{_name}\n{_description}");
-        Console.Write("Enter duration in seconds: ");
-        _duration = int.Parse(Console.ReadLine());
+        SetDurationFromUser();
         Console.WriteLine("\nPrepare to begin.");
         ShowSpinner(3);
 
@@ -23,6 +23,7 @@ public class Activity
 
     public void DisplayEndMessage()
     {
+
         Console.Clear();
         Console.WriteLine("Well done!");
         ShowSpinner(3);
@@ -40,6 +41,22 @@ public class Activity
             Console.Write("\b \b");
         }
     }
+    
+    public void SetDurationFromUser()
+    {
+        int duration;
+        while (true)
+        {
+            Console.Write("Enter the duration of the activity in seconds: ");
+            string input = Console.ReadLine();
 
+            if (int.TryParse(input, out duration) && duration > 0)
+            {
+                _duration = duration; 
+                break;
+            }
+
+        }
+    }
     
 }
