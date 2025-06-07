@@ -1,7 +1,5 @@
 public class GratitudeActivity : Activity
 {
-
-
     public GratitudeActivity() : base("Gratitude Activity", "This activity you will help you list things your grateful for. This helps shift focus to positive aspects of life.", 0) 
     {
 
@@ -12,7 +10,7 @@ public class GratitudeActivity : Activity
         Console.WriteLine("\nTake a moment to reflect on things you're grateful for.");
         ShowSpinner(3);
 
-        List<string> gratitudeResponses = new List<string>();
+        List<string> _gratitudeResponses = new List<string>();
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
         Console.WriteLine("\nStart listing things you're grateful for:");
@@ -24,13 +22,13 @@ public class GratitudeActivity : Activity
                 Console.Write("> ");
                 string response = Console.ReadLine();
                 if (response?.Length > 0)
-                    gratitudeResponses.Add(response);
+                    _gratitudeResponses.Add(response);
             }
         }
 
         ShowSpinner(3);
         Console.WriteLine("\nYou listed the following things you're grateful for:");
-        foreach (var item in gratitudeResponses)
+        foreach (var item in _gratitudeResponses)
         {
             Console.WriteLine($"- {item}");
         }

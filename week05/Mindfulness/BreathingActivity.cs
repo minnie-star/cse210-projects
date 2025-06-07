@@ -1,7 +1,8 @@
 public class BreathingActivity : Activity
 {
-    public BreathingActivity() : base("Breathing Activity", 
-        "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", 0) 
+    private int _seconds;
+    public BreathingActivity() : base("Breathing Activity",
+        "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", 0)
     {
     }
 
@@ -24,6 +25,7 @@ public class BreathingActivity : Activity
 
     private void DisplayCountDown(int seconds)
     {
+        _seconds = seconds;
         for (int i = seconds; i > 0; i--)
         {
             Console.Write($"{i} ");
