@@ -1,0 +1,4 @@
+1280
+SimpleGoal|wake|up|20|False
+EternalGoal|eat|food|50
+ChecklistGoal|read|book|100|0|2|1000
