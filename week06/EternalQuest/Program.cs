@@ -19,7 +19,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("1.Create Goal\n2. Save Goal\n3. Load Score\n4. Record Event\n5. Show Goal\n6. Show Score\n7. Quit");
+            Console.WriteLine("1. Create Goal\n2. Save Goal\n3. Load Score\n4. Show Goal\n5. Record Event\n6. Show Score\n7. Quit");
             
             Console.Write("Choose an option: ");
             string choice = Console.ReadLine();
@@ -36,10 +36,10 @@ class Program
                     goalManager.LoadGoals(FileName, goals, player);
                     break;
                 case "4":
-                    goalManager.RecordGoal(goals, player);
+                    goalManager.ShowGoals(goals);
                     break;
                 case "5":
-                    goalManager.ShowGoals(goals);
+                    goalManager.RecordGoal(goals, player);
                     break;
                     case "6":
                     goalManager.ShowScore(player._totalPoints);
