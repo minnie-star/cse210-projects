@@ -8,7 +8,8 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the EternalQuest Project.");
-
+        // Exceeds requirement menu option to show goal and show user score on the console,
+        // Added a player class to track users achievements. 
         Console.Write("Enter your name: ");
         string userName = Console.ReadLine();
         GoalManager goalManager = new GoalManager(userName);
