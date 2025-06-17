@@ -1,28 +1,27 @@
 public class Runnuning : Exercise
 {
-    protected double _distance { get; }
-    public Runnuning(DateTime date, double length, double distance) : base(DateOnly.FromDateTime(date), length)
+    
+    public Runnuning(DateTime date, double length, double distance) : base(DateOnly.FromDateTime(date), length, distance)
     {
-        _distance = distance;
+       
     }
 
-    public override int Distance()
+    public override double Distance()
     {
         return (int)_distance;
     }
 
-    public override int Speed()
+    public override double Speed()
     {
-        return (int)(_distance * _length) * 60; 
+        double speed = (_distance * _length) * 60;
+        return speed;
     }
 
-    public override int Pace()
+    public override double Pace()
     {
-        return (int) _length / Distance();
+        double pace = _length / Distance();
+        return pace;
     }
 
-    public override string GetSummary()
-    {
-        return $"{_date} Running ({_length}min) - Distance: {_distance}km - Speed: {Speed}kph - Pace: {Pace}min per km";
-    }
+    
 }

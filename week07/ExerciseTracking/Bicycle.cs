@@ -1,32 +1,27 @@
 public class Bicycle : Exercise
 {
-    private double _speed { get; }
-    public Bicycle(DateTime date, double length) : base(DateOnly.FromDateTime(date), length)
+    public Bicycle(DateTime date, double length, double distance) : base(DateOnly.FromDateTime(date), length, distance)
     {
 
     }
 
-    public override int Distance()
+    public override double Distance()
     {
-        // TODO: Implement logic to calculate distance
-        return 0;
+
+        return (int)_distance;
     }
 
-    public override int Speed()
+    public override double Speed()
     {
-        // TODO: Implement logic to calculate speed
-        return 0;
+
+        return (int)(Distance() / _length) * 60;
     }
 
-    public override int Pace()
+    public override double Pace()
     {
-        // TODO: Implement logic to calculate pace
-        return 0;
+
+        return (int) _length / Distance();
     }
 
-    public override string GetSummary()
-    {
-        // TODO: Implement logic to return a summary string
-        return "Running summary";
-    }
+    
 }

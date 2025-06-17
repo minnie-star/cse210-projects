@@ -1,29 +1,28 @@
 public class Swimming : Exercise
 {
-    private double _laps { get; }
-    public Swimming(DateTime date, double length, double laps) : base(DateOnly.FromDateTime(date), length)
+    private double _laps { get; set; }
+    public Swimming(DateTime date, double length, double laps, double distance) : base(DateOnly.FromDateTime(date), length, distance)
     {
         _laps = laps;
     }
 
-    public override int Distance()
+    public override double Distance()
     {
-        return (int)_laps * 50 / 1000;
+        double distance = _laps * 50 / 1000;
+        return distance;
     }
 
-    public override int Speed()
+    public override double Speed()
     {
-        return (int)((Distance() / _length) * 60);
+        double speed = ((Distance() / _length) * 60);
+        return speed;
     }
 
-    public override int Pace()
+    public override double Pace()
     {
-        return (int) _length / Distance();
+        double pace = _length / Distance();
+        return pace;
     }
 
-    public override string GetSummary()
-    {
-       
-        return $"{_date} Running ({_length}min) - Distance: {Distance}km - Speed: {Speed}kph - Pace: {Pace}min per km";
-    }
+    
 }
